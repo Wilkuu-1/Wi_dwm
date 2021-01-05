@@ -5,17 +5,17 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#010101";
-static const char col_gray2[]       = "#343434";
+static const char *fonts[]          = { "inconsolata:size=10","font-awesome:size=10" };
+static const char dmenufont[]       = "inconsolata:size=10";
+static const char col_gray1[]       = "#010111";
+static const char col_gray2[]       = "#343444";
 static const char col_gray3[]       = "#ababab";
-static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#cd2d78";
+static const char col_gray4[]       = "#f1ffff";
+static const char col_main[]        = "#cd2d78";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_main,  col_main  },
 };
 
 /* tagging */
@@ -59,6 +59,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+static const char *flameshotcmd[] = {"flameshot","gui",NULL}
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -85,6 +86,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY,                       XK_Print,  spawn,          {.v = flameshotcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
