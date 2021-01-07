@@ -5,8 +5,9 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10","font-awesome:size=10" };
+static const char *fonts[]          = { "monospace:size=10","font-awesome:size=14" };
 static const char dmenufont[]       = "monospace:size=10";
+static const int focusonwheel       = 0;
 static const char col_gray1[]       = "#010111";
 static const char col_gray2[]       = "#343444";
 static const char col_gray3[]       = "#ababab";
@@ -19,7 +20,9 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/* Translation of icons (for when the icons don't get displayed in the editor)
+1:file 2:folder 3:calendar 4:sticknote 5:terminal 6:edit 7:bookmark 8:discord 9:firefox */
+static const char *tags[] = {"","","","","","","","",""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,8 +42,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default (icon:columns) */
+	{ "",      NULL },    /* no layout function means floating behavior (icon:window-restore) */
 	{ "[M]",      monocle },
 };
 
